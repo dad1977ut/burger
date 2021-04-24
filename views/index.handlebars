@@ -1,0 +1,23 @@
+<h1>Burger App</h1>
+<h1>Burgers not eaten</h1>
+<ul>
+    {{#each burgers}}
+    {{#unless devoured}}
+    <li>{{burger_name}}
+        <button class="eat" data-id="{{id}}" data-devoured="{{devoured}}">
+            eat the burger
+        </button>
+    </li>
+    {{/unless}}
+    {{/each}}
+</ul>
+<h1>Burgers eaten</h1>
+<ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    <li>{{burger_name}}
+    </li>
+    {{/if}}
+    {{/each}}
+</ul>
+{{!-- add create burger form --}}
