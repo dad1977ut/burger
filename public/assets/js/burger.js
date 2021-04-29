@@ -22,5 +22,22 @@ $(".eat").on("click", function () {
     }
   });
 });
+$(".addBurgerBtn").on("click", function (event) {
+  event.preventDefault();
+  let burger = { burger_name: $("#addBurger").val(), devoured: false };
+  console.log(burger);
+  fetch("/api/burgers", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(burger),
+  }).then(() => {
+    $("#addBurger").val("");
+    console.log("created a burger");
+    location.reload();
+  });
+});
 //add lisnter for the create form
 //add fetch call to add burger
